@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="/front/public/styles/libro.css">
+    <title>Libro Diario</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+
+            <nav class="menu">
+              
+                <div class="menu-inicio">
+                    <i class='bx bx-book-bookmark' ></i>
+                    <a href="libro.html">Libro Diario</a> 
+                </div>
+                <div class="menu-usuario">
+                    <i class='bx bx-user-circle'></i>
+                    <a href="#">Usuario</a>
+                </div>
+           
+            </nav>
+        </div>
+
+        <div class="menu-lateral">
+            <div class="logo">
+                <img src="../public/img/logo.PNG" alt="logo">
+            </div>
+            <ul class="opciones">
+                <li><a href="/front/public/index.html">Inicio</a></li>
+                <li><a href="/front/public/inventario.html">Gestion de Inventario</a></li>
+                <li><a href="/front/public/libro.html">Libro Diario</a></li>
+                <li><a href="/front/public/cuadrecaja.html">Cuadre de caja</a></li>
+                <li><a href="/front/public/reportes.html">Reportes</a></li>
+                <li><a href="/front/public/confi.html">Configuración</a></li>   
+            </ul>
+        </div>
+
+        <main>
+            <div class="bloque1">
+                <h2>Libro Diario</h2>
+    
+                <!-- Selector de Fecha -->
+                <div class="selector-fecha">
+                    <label for="fecha">Seleccione una fecha</label><br>
+                    <input type="date" id="fecha">
+                    <br>
+                    <button id="buscar" onclick="buscarResultados()">Buscar</button>
+                </div>
+    
+                <!-- Registro de Facturas Formulario -->
+                <div class="registro-facturas">
+                    <h2>Registro de Facturas</h2>
+                    <form id="formulario-factura">
+                        <label for="tipo-movimiento">Tipo de Movimiento</label>
+                        <select id="tipo-movimiento">
+                            <option value="gastos">Gastos</option>
+                            <option value="prestamos">Prestamos</option>
+                            <option value="transferencias">Transferencias</option>
+                        </select>
+                        <br>
+                        <label for="concepto">Concepto:</label>
+                        <input type="text" id="concepto" required><br>
+                        <label for="monto">Monto:</label>
+                        <input type="number" id="monto" step="0.01" required>
+                        <br>
+                        <div class="button-agregar-cancelar">
+                            <button type="button" id="agregar-movimiento" onclick="agregarMovimiento()">Agregar movimiento</button>
+                            <button type="reset" id="cancelar">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <!-- Resultados del Día (Tabla) -->
+                <table id="resultados-dia">
+                    <thead>
+                        <t>
+                            <th>Tipo de Movimiento</th>
+                            <th>Concepto</th>
+                            <th>Monto</th>
+                            <th>Seleccionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se agregarán dinámicamente las filas de resultados -->
+                    </tbody>
+                </table>
+                <div class="total-gasto">
+                    <label for="gasto-total">Gasto Total:</label>
+                    <input type="text" id="gasto-total" readonly>
+                </div>
+            </div>
+        </main>
+    
+        <script>
+            function agregarMovimiento() {
+            const tipoMovimiento = document.getElementById("tipo-movimiento").value;
+            const concepto = document.getElementById("concepto").value;
+            const monto = document.getElementById("monto").value;
+
+            // Validar que los campos no estén vacíos
+            if (tipoMovimiento && concepto && monto) {
+                // Crear una fila en la tabla
+                const tablaResultados = document.getElementById("resultados-dia").getElementsByTagName('tbody')[0];
+                const nuevaFila = tablaResultados.insertRow();
+                const celdaTipoMovimiento = nuevaFila.insertCell(0);
+                const celdaConcepto = nuevaFila.insertCell(1);
+                const celdaMonto = nuevaFila.insertCell(2);
+                const celdaAcciones = nuevaFila.insertCell(3);
+
+                // Agregar los datos a la fila
+                celdaTipoMovimiento.innerHTML = tipoMovimiento;
+                celdaConcepto.innerHTML = concepto;
+                celdaMonto.innerHTML = monto;
+
+                // Agregar botón de eliminar
+                const botonEliminar = document.createElement("button");
+                botonEliminar.textContent = "Eliminar";
+                botonEliminar.onclick = function() {
+                    eliminarFila(nuevaFila);
+                };
+                celdaAcciones.appendChild(botonEliminar);
+
+                // Limpiar los campos del formulario
+                document.getElementById("tipo-movimiento").value = "";
+                document.getElementById("concepto").value = "";
+                document.getElementById("monto").value = "";
+            } else {
+                alert("Todos los campos son obligatorios.");
+            }
+         // Calcular el gasto total y mostrarlo en el input
+    calcularGastoTotal();
+}
+
+function calcularGastoTotal() {
+    const tablaResultados = document.getElementById("resultados-dia").getElementsByTagName('tbody')[0];
+    const filas = tablaResultados.getElementsByTagName('tr');
+
+    let gastoTotal = 0;
+
+    // Iterar sobre las filas y sumar los montos
+    for (let i = 0; i < filas.length; i++) {
+        const montoCell = filas[i].getElementsByTagName('td')[2];
+        const monto = parseFloat(montoCell.innerText);
+        if (!isNaN(monto)) {
+            gastoTotal += monto;
+        }
+    }
+
+    // Mostrar el gasto total en el input
+    const inputGastoTotal = document.getElementById("gasto-total");
+    inputGastoTotal.value = gastoTotal.toFixed(2); // Formatear el resultado a dos decimales
+}
+
+        function eliminarFila(fila) {
+            const tablaResultados = document.getElementById("resultados-dia").getElementsByTagName('tbody')[0];
+            tablaResultados.removeChild(fila);
+        }
+
+        function buscarResultados() {
+            // Aquí puedes implementar la lógica para buscar y mostrar resultados según la fecha seleccionada
+            // Puedes acceder a la fecha con document.getElementById("fecha").value
+        }
+        </script>
+    
+        </header>
+        </body>
+        </html>
+

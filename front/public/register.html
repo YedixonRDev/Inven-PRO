@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta - InvenPRO</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="/front/public/styles/register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="info">
+            <div class="logo">
+                <img src="/front/public/images/logo.PNG" alt="logo">
+            </div>
+
+            <h2>Bienvenidos</h2><br>
+            <p class="text-1">Para unirte a nuestro sistema por favor, registra tus datos.</p><br><br></br:>
+
+            <div class="button">
+                <a href="/front/public/login.html" class="submit-1">Iniciar Sesion</a>
+            </div>
+        </div>
+        <div class="form">
+            <h1>Crear Cuenta</h1><br><br>
+
+            <form id="form"> <!-- Agregado el ID "form" al formulario -->
+                <div class="inputs">
+                    <input class="controls" type="text" id="username" name="username" placeholder="Nombre de Usuario o Empresa">
+                    <input class="controls" text" id="email" name="email" placeholder="Correo electronico">
+                    <input class="controls" type="password" id="password" name="password" placeholder="Ingrese contraseña">
+                    <input class="controls" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña">
+                </div>
+
+                <div class="button-2">
+                    <button class="submit" type="submit">Crear cuenta</button><br><br>
+                    <a href="/front/public/login.html" class="submit-2">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Ruta del script -->
+    <script src="/front/public/scripts/register.js"></script>
+</body>
+</html>

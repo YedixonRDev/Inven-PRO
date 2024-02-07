@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="/front/public/styles/style.css">
+    <script src="script.js"></script>
+    <title>Inicio</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+
+            <nav class="menu">
+              
+                <div class="menu-inicio">
+                    <i class='bx bxs-home-alt-2'></i>
+                    <a href="index.html">Inicio</a> 
+                </div>
+                <div class="menu-usuario">
+                    <i class='bx bx-user-circle'></i>
+                    <a href="#">Usuario</a>
+                </div>
+           
+            </nav>
+        </div>
+
+        <div class="menu-lateral">
+            <div class="logo">
+                <img src="/front/public/img/logo.PNG" alt="logo">
+            </div>
+            <ul class="opciones">
+                <li><a href="/front/public/index.html">Inicio</a></li>
+                <li><a href="/front/public/inventario.html">Gestion de Inventario</a></li>
+                <li><a href="/front/public/libro.html">Libro Diario</a></li>
+                <li><a href="/front/public/cuadrecaja.html">Cuadre de caja</a></li>
+                <li><a href="/front/public/reportes.html">Reportes</a></li>
+                <li><a href="/front/public/confi.html">Configuración</a></li>        
+            </ul>
+        </div>
+
+        <main>
+            <div class="contenedor-bloques">
+                <div class="bloque1">
+                    <div class="mesas">
+                        <h2>Estado de Mesas</h2>
+                        <div class="mesa-1">
+                            <p>Mostrador</p>
+                            <button class="disponible-btn" data-id="0">Disponible</button>
+                        </div>
+                        <div class="mesa-2">
+                            <p>Mesa 1</p>
+                            <button class="disponible-btn" data-id="1">Disponible</button>
+                        </div>
+                        <div class="mesa-3">
+                            <p>Mesa 2</p>
+                            <button class="disponible-btn" data-id="2">Disponible</button>
+                        </div>
+                        <div class="mesa-4">
+                            <p>Mesa 3</p>
+                            <button class="disponible-btn" data-id="3">Disponible</button>
+                        </div>
+                        <div class="mesa-5">
+                            <p>Mesa 4</p>
+                            <button class="disponible-btn" data-id="4">Disponible</button>
+                        </div>
+
+                   
+                    </div>
+                </div>
+                
+                <div class="bloque2" id="product-list-container">
+
+                    <div class="productos">
+                        <h2>Productos Disponibles</h2>
+                        <label for="buscarProducto">Buscar Producto:</label>
+                      <input type="text" id="buscarProductoInput" name="buscarProducto" placeholder="Ingrese el nombre del producto">
+                      <button id="buscarProductoButton">Buscar</button>
+                        
+                        <form id="agregarProductoForm">
+                            <label for="nombreProducto">Nombre del Producto:</label>
+                            <input type="text" id="nombreProducto" required>
+                
+                            <label for="categoriaProducto">Categoría:</label>
+                            <input type="text" id="categoriaProducto" required>
+                
+                            <label for="precioProducto">Precio:</label>
+                            <input type="number" id="precioProducto" required>
+                
+                            <button type="button" id="agregarProducto">Agregar Producto</button>
+                        </form>
+                        <div class="table-wrapper">
+                          <table id="product-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Seleccionar</th>
+                                    <th>Eliminar</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="product-list">
+                                <!-- Aquí se cargarán los productos dinámicamente con JavaScript -->
+                            </tbody>
+                          </table>
+                       </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="bloque3">
+                <div class="cajaRegistradora">
+                    <h2>Cuentas</h2>
+                    <div class="scroll">
+                    <form id="cajaForm">
+                        <div class="numeroMesa">
+                        <label for="numeroMesa">Número de Mesa:</label>
+                        <input type="text" id="numeroMesa" name="numeroMesa" required>
+                    </div>
+
+                        <div class="producto">
+                        <label for="producto">Producto:</label>
+                        <input type="text" id="producto" name="producto" required>
+                    </div>
+            
+                        <div class="precio">
+                            <label for="precio">Precio:</label>
+                            <input type="number" id="precio" name="precio" required>
+                        </div>
+            
+                        <ul id="listaCuenta"></ul>
+                        
+            
+                        <h3>Cuenta Total: <span id="cuentaTotal">0</span></h3>
+
+                        <div class="metodoPago">
+                        <label for="metodoPago">Método de Pago:</label>
+                        <select id="metodoPago" name="metodoPago" required>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="transferencia">Transferencia</option>
+                        </select>
+                    
+                        <label for "montoRecibido">Monto Recibido:</label>
+                        <input type="number" id="montoRecibido" name="montoRecibido" required>
+                        </div>
+                        <p>Vuelto: <span id="vuelto">0</span></p>
+                        <button type="button" id="generarFactura">Generar de Vuela</button>
+                    
+                        
+                        <div class="buttonFinal">
+                            
+                        <button type="button" id="generarFactura">Imprimir Factura</button>
+                        <button type="button" id="registrarCuenta">Registrar</button>
+                        <button type="button" id="eliminarCuenta">Eliminar Cuenta</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+              
+            
+        </main>
+
+    </header>
+    
+</body>
+</html>

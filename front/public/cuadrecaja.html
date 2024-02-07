@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="../public/styles/cuadrecaja.css">
+    <title>Cuadre de Caja</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+
+            <nav class="menu">
+              
+                <div class="menu-inicio">
+                    <i class='bx bx-money-withdraw'></i>
+                    <a href="../public/cuadrecaja.html">Cuadre de Caja</a> 
+                </div>
+                <div class="menu-usuario">
+                    <i class='bx bx-user-circle'></i>
+                    <a href="#">Usuario</a>
+                </div>
+           
+            </nav>
+        </div>
+
+        <div class="menu-lateral">
+            <div class="logo">
+                <img src="../public/img/logo.PNG" alt="logo">
+            </div>
+            <ul class="opciones">
+                <li><a href="/front/public/index.html">Inicio</a></li>
+                <li><a href="/front/public/inventario.html">Gestion de Inventario</a></li>
+                <li><a href="/front/public/libro.html">Libro Diario</a></li>
+                <li><a href="/front/public/cuadrecaja.html">Cuadre de caja</a></li>
+                <li><a href="/front/public/reportes.html">Reportes</a></li>
+                <li><a href="/front/public/confi.html">Configuración</a></li>       
+            </ul>
+        </div>
+
+        <main>
+            <div class="bloque1">
+                <h2>Cuadre de Caja</h2>
+    
+                <div class="selector-fecha">
+                    <label for="fecha">Seleccione una fecha</label>
+                    <input type="date" id="fecha">
+                    <button id="buscar">Buscar</button>
+                </div>
+    
+                <div class="ingreso">
+                    <div class="ingresos-container">
+                        <h2>Detalles de Ingresos y Egresos</h2>
+    
+                        <div class="ingresos">
+                            <label>Total de gastos</label>
+                            <input type="text" id="total-gastos" value="000.00$" readonly>
+                        </div>
+                        <div class="ingresos">
+                            <label>Total de efectivo</label>
+                            <input type="text" id="total-efectivo" value="000.00$" readonly>
+                        </div>
+                        <div class="ingresos">
+                            <label>Total de ventas</label>
+                            <input type="text" id="total-ventas" value="000.00$" readonly>
+                        </div>
+                        <button onclick="confirmarVentas()">Confirmar Ventas</button>
+                    </div>
+                </div>
+    
+                <div class="cierre-caja">
+                    <h2>Cierre Caja</h2>
+                    <ul>
+                        <li>Ventas totales de hoy: <span id="ventas-hoy">000.00$</span></li>
+                        <li>Gastos totales de hoy: <span id="gastos-hoy">000.00$</span></li>
+                        <li>Efectivo totales de hoy: <span id="efectivo-hoy">000.00$</span></li>
+                        <li>Diferencias: <span id="diferencias">000.00$</span></li>
+                    </ul>
+    
+                    <div class="button">
+                        <button onclick="realizarCierre()">Cerrar Caja</button>
+                        <button onclick="descargarExel()">Descargar Plantilla</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Recuperar datos almacenados en localStorage (puedes ajustar esto según tu implementación)
+                const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    
+                // Calcular el total de gastos
+                const totalGastos = storedProducts.reduce((total, product) => total + parseFloat(product.price), 0);
+    
+                // Actualizar el valor del input
+                const totalGastosInput = document.getElementById("total-gastos");
+                totalGastosInput.value = totalGastos.toFixed(2) + "$";
+            });
+        </script>
+    
+        </header> 
+        </body>
+        </html>
