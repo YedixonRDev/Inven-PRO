@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/users', authenticateToken, async (req, res) => {
+app.get('/user', authenticateToken, async (req, res) => {
     try {
         const users = await User.find({}, { password: 0 });
         res.json(users);

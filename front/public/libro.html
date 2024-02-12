@@ -18,11 +18,6 @@
                     <i class='bx bx-book-bookmark' ></i>
                     <a href="libro.html">Libro Diario</a> 
                 </div>
-                <div class="menu-usuario">
-                    <i class='bx bx-user-circle'></i>
-                    <a href="#">Usuario</a>
-                </div>
-           
             </nav>
         </div>
 
@@ -32,11 +27,12 @@
             </div>
             <ul class="opciones">
                 <li><a href="/front/public/index.html">Inicio</a></li>
-                <li><a href="/front/public/inventario.html">Gestion de Inventario</a></li>
                 <li><a href="/front/public/libro.html">Libro Diario</a></li>
                 <li><a href="/front/public/cuadrecaja.html">Cuadre de caja</a></li>
-                <li><a href="/front/public/reportes.html">Reportes</a></li>
-                <li><a href="/front/public/confi.html">Configuración</a></li>   
+                <li><a href="/front/public/confi.html">Soporte Tecnico</a></li> 
+                <div class="salir">
+                    <li><a href="/front/public/login.html">Salir</a></li>
+                </div>     
             </ul>
         </div>
 
@@ -96,76 +92,7 @@
             </div>
         </main>
     
-        <script>
-            function agregarMovimiento() {
-            const tipoMovimiento = document.getElementById("tipo-movimiento").value;
-            const concepto = document.getElementById("concepto").value;
-            const monto = document.getElementById("monto").value;
-
-            // Validar que los campos no estén vacíos
-            if (tipoMovimiento && concepto && monto) {
-                // Crear una fila en la tabla
-                const tablaResultados = document.getElementById("resultados-dia").getElementsByTagName('tbody')[0];
-                const nuevaFila = tablaResultados.insertRow();
-                const celdaTipoMovimiento = nuevaFila.insertCell(0);
-                const celdaConcepto = nuevaFila.insertCell(1);
-                const celdaMonto = nuevaFila.insertCell(2);
-                const celdaAcciones = nuevaFila.insertCell(3);
-
-                // Agregar los datos a la fila
-                celdaTipoMovimiento.innerHTML = tipoMovimiento;
-                celdaConcepto.innerHTML = concepto;
-                celdaMonto.innerHTML = monto;
-
-                // Agregar botón de eliminar
-                const botonEliminar = document.createElement("button");
-                botonEliminar.textContent = "Eliminar";
-                botonEliminar.onclick = function() {
-                    eliminarFila(nuevaFila);
-                };
-                celdaAcciones.appendChild(botonEliminar);
-
-                // Limpiar los campos del formulario
-                document.getElementById("tipo-movimiento").value = "";
-                document.getElementById("concepto").value = "";
-                document.getElementById("monto").value = "";
-            } else {
-                alert("Todos los campos son obligatorios.");
-            }
-         // Calcular el gasto total y mostrarlo en el input
-    calcularGastoTotal();
-}
-
-function calcularGastoTotal() {
-    const tablaResultados = document.getElementById("resultados-dia").getElementsByTagName('tbody')[0];
-    const filas = tablaResultados.getElementsByTagName('tr');
-
-    let gastoTotal = 0;
-
-    // Iterar sobre las filas y sumar los montos
-    for (let i = 0; i < filas.length; i++) {
-        const montoCell = filas[i].getElementsByTagName('td')[2];
-        const monto = parseFloat(montoCell.innerText);
-        if (!isNaN(monto)) {
-            gastoTotal += monto;
-        }
-    }
-
-    // Mostrar el gasto total en el input
-    const inputGastoTotal = document.getElementById("gasto-total");
-    inputGastoTotal.value = gastoTotal.toFixed(2); // Formatear el resultado a dos decimales
-}
-
-        function eliminarFila(fila) {
-            const tablaResultados = document.getElementById("resultados-dia").getElementsByTagName('tbody')[0];
-            tablaResultados.removeChild(fila);
-        }
-
-        function buscarResultados() {
-            // Aquí puedes implementar la lógica para buscar y mostrar resultados según la fecha seleccionada
-            // Puedes acceder a la fecha con document.getElementById("fecha").value
-        }
-        </script>
+        <script src="/front/public/scripts/librodiario.js"></script>
     
         </header>
         </body>

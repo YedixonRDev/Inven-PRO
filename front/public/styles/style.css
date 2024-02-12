@@ -99,6 +99,11 @@ body{
     background-color: #1f3a59;
 
 }
+.salir{ 
+    margin-top: 350px;
+    font-size: 20px;
+    font-weight: bold;
+}
 .bloque1, .bloque2, .bloque3 {
     display: flex;
     justify-content: center;

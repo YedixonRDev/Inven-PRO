@@ -18,11 +18,6 @@
                     <i class='bx bx-money-withdraw'></i>
                     <a href="../public/cuadrecaja.html">Cuadre de Caja</a> 
                 </div>
-                <div class="menu-usuario">
-                    <i class='bx bx-user-circle'></i>
-                    <a href="#">Usuario</a>
-                </div>
-           
             </nav>
         </div>
 
@@ -32,11 +27,12 @@
             </div>
             <ul class="opciones">
                 <li><a href="/front/public/index.html">Inicio</a></li>
-                <li><a href="/front/public/inventario.html">Gestion de Inventario</a></li>
                 <li><a href="/front/public/libro.html">Libro Diario</a></li>
                 <li><a href="/front/public/cuadrecaja.html">Cuadre de caja</a></li>
-                <li><a href="/front/public/reportes.html">Reportes</a></li>
-                <li><a href="/front/public/confi.html">Configuración</a></li>       
+                <li><a href="/front/public/confi.html">Soporte Tecnico</a></li>
+                <div class="salir">
+                    <li><a href="/front/public/login.html">Salir</a></li>
+                </div>    
             </ul>
         </div>
 
@@ -87,19 +83,7 @@
             </div>
         </main>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Recuperar datos almacenados en localStorage (puedes ajustar esto según tu implementación)
-                const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
-    
-                // Calcular el total de gastos
-                const totalGastos = storedProducts.reduce((total, product) => total + parseFloat(product.price), 0);
-    
-                // Actualizar el valor del input
-                const totalGastosInput = document.getElementById("total-gastos");
-                totalGastosInput.value = totalGastos.toFixed(2) + "$";
-            });
-        </script>
+        <script src="/front/public/scripts/cuadrecaja.js"></script>
     
         </header> 
         </body>

@@ -6,7 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" type="text/css" href="/front/public/styles/style.css">
-    <script src="script.js"></script>
+    <script src="/front/public/scripts/script.js"></script>
     <title>Inicio</title>
 </head>
 <body>
@@ -19,10 +19,6 @@
                     <i class='bx bxs-home-alt-2'></i>
                     <a href="index.html">Inicio</a> 
                 </div>
-                <div class="menu-usuario">
-                    <i class='bx bx-user-circle'></i>
-                    <a href="#">Usuario</a>
-                </div>
            
             </nav>
         </div>
@@ -33,11 +29,12 @@
             </div>
             <ul class="opciones">
                 <li><a href="/front/public/index.html">Inicio</a></li>
-                <li><a href="/front/public/inventario.html">Gestion de Inventario</a></li>
                 <li><a href="/front/public/libro.html">Libro Diario</a></li>
                 <li><a href="/front/public/cuadrecaja.html">Cuadre de caja</a></li>
-                <li><a href="/front/public/reportes.html">Reportes</a></li>
-                <li><a href="/front/public/confi.html">Configuración</a></li>        
+                <li><a href="/front/public/confi.html">Soporte Tecnico</a></li>   
+                <div class="salir">
+                    <li><a href="/front/public/login.html">Salir</a></li>
+                </div>     
             </ul>
         </div>
 
@@ -153,8 +150,7 @@
                         
                         <div class="buttonFinal">
                             
-                        <button type="button" id="generarFactura">Imprimir Factura</button>
-                        <button type="button" id="registrarCuenta">Registrar</button>
+                        <button type="button" id="ConfirmarVenta">Confirmar Venta</button>
                         <button type="button" id="eliminarCuenta">Eliminar Cuenta</button>
                     </div>
                     </form>

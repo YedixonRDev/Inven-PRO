@@ -103,6 +103,11 @@ body{
 
 }
 
+.salir{ 
+    margin-top: 350px;
+    font-size: 20px;
+    font-weight: bold;
+}
 main{
     display: flex;
     justify-content: space-between;
@@ -132,14 +137,7 @@ main{
 
 }
 
-.perfil-usuario{
-    color: #0d1b2a;
-    font-size: 25px;
-    text-align: center;
-
-}
-
-.editar-btn{
+.manual-btn{
     background-color: #0d1b2a;
     color: #fff;
     border: none;
@@ -153,7 +151,7 @@ main{
 
 }
 
-.editar-btn:hover {
+.manual-btn:hover {
     background-color: #e8e8e8;
 
 }
@@ -162,21 +160,26 @@ main{
     text-align: center;
     font-size: 30px;
     color: #0d1b2a;
+   
 }
 
-.listas-opciones a {
-    text-decoration: none;
-    color: #0d1b2a;
-    text-align: none;
-}
-
-.listas-opciones a:hover {
-    color: #e8e8e8;
+.listas-opciones li {
+    padding: 10px;
+    margin-top: 10px;
 }
 
 .listas-opciones ul {
     list-style-type: none;
     text-align: center;
     font-size: 25px;
+}
+
+.listas-opciones li  {
+    margin-top: 5px;
+    font-size: 25px;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: bold;
+    
 }
 

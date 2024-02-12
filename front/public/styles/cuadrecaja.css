@@ -100,7 +100,11 @@ body {
 .opciones a:hover {
     background-color: #1f3a59;
 }
-
+.salir{ 
+    margin-top: 350px;
+    font-size: 20px;
+    font-weight: bold;
+}
 main {
     display: flex;
     justify-content: space-between;
