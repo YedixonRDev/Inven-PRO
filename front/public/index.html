@@ -73,21 +73,23 @@
                     <div class="productos">
                         <h2>Productos Disponibles</h2>
                         <label for="buscarProducto">Buscar Producto:</label>
-                      <input type="text" id="buscarProductoInput" name="buscarProducto" placeholder="Ingrese el nombre del producto">
-                      <button id="buscarProductoButton">Buscar</button>
+                        <input type="text" id="buscarProductoInput" name="buscarProducto" placeholder="Ingrese el nombre del producto">
+                        <button id="buscarProductoButton">Buscar</button>
                         
-                        <form id="agregarProductoForm">
+                        <form id="agregarProductoForm" action="/v1/inventory-app/products" method="post">
                             <label for="nombreProducto">Nombre del Producto:</label>
-                            <input type="text" id="nombreProducto" required>
-                
+                            <input type="text" id="nombreProducto" name="nombre" required> <!-- Cambiado a "nombre" -->
+                        
                             <label for="categoriaProducto">Categoría:</label>
-                            <input type="text" id="categoriaProducto" required>
-                
+                            <input type="text" id="categoriaProducto" name="categoria" required> <!-- Cambiado a "categoria" -->
+                        
                             <label for="precioProducto">Precio:</label>
-                            <input type="number" id="precioProducto" required>
-                
-                            <button type="button" id="agregarProducto">Agregar Producto</button>
+                            <input type="number" id="precioProducto" name="precio" required> <!-- Cambiado a "precio" -->
+                        
+                            <button type="submit" id="agregarProducto">Agregar Producto</button>
                         </form>
+                        
+                    
                         <div class="table-wrapper">
                           <table id="product-table">
                             <thead>

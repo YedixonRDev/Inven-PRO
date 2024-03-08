@@ -2,7 +2,7 @@ import Product from '../models/productModel.js';
 
 export const registerProduct = async (req, res) => {
     try {
-        const { nombre, descripcion, precio, cantidad } = req.body;
+        const { nombre, categoria, precio } = req.body;
 
         // Verificar si el producto ya existe con el mismo nombre
         const existingProduct = await Product.findOne({ nombre });
@@ -11,11 +11,14 @@ export const registerProduct = async (req, res) => {
         }
 
         // Crear un nuevo producto
-        const newProduct = new Product({ nombre, descripcion, precio, cantidad });
+        const newProduct = new Product({ nombre, categoria, precio });
         await newProduct.save();
 
-        // Enviar respuesta
-        res.status(201).json({ message: 'Producto registrado exitosamente', product: newProduct });
+        // Generar un token usando la clave secreta
+        const token = jwt.sign({ productId: newProduct._id }, config.secretKey);
+
+        // Enviar respuesta con el token
+        res.status(201).json({ message: 'Producto registrado exitosamente', product: newProduct, token });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Ha ocurrido un error al registrar el producto' });
