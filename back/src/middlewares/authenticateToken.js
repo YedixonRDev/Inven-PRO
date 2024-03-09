@@ -1,9 +1,9 @@
-// authenticateToken.js
 import jwt from 'jsonwebtoken';
 import config from '../config.js';
 import User from '../models/userModel.js';
 
-const authenticateToken = async (req, res, next) => {
+
+const authenticateToken = async (req,  res, next) => {
     try {
         const authorizationHeader = req.headers.authorization;
         const accessToken = authorizationHeader && authorizationHeader.split(' ')[1];

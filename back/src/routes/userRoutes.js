@@ -1,4 +1,3 @@
-// userRoutes.js
 import express from 'express';
 import { deleteUser, getUserById, getUsers, updateUser } from '../controllers/userController.js';
 import authenticateToken from '../middlewares/authenticateToken.js';

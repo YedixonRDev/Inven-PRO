@@ -53,36 +53,43 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+
+
+//   document.getElementById('agregarProductoForm').addEventListener('submit', async function(event) {
+//     event.preventDefault(); // Evitar el envío del formulario por defecto
+
+//     const form = event.target;
+//     const formData = new FormData(form);
+
+//     try {
+//         const response = await fetch(form.action, {
+//             method: 'POST',
+//             headers: {
+//                 'Authorization': 'Bearer your_access_token', // Aquí debes incluir tu token de acceso si es necesario
+//             },
+//             body: formData
+//         });
+
+//         const responseData = await response.json();
+//         if (response.ok) {
+//             console.log('Producto registrado exitosamente:', responseData.product);
+//             console.log('Token:', responseData.token);
+//             // Manejar la respuesta exitosa aquí, por ejemplo, redirigir a otra página
+//         } else {
+//             console.error('Error:', responseData.message);
+//             // Manejar el error aquí, por ejemplo, mostrar un mensaje al usuario
+//         }
+//     } catch (error) {
+//         console.error('Ha ocurrido un error al realizar la solicitud:', error);
+//         // Manejar errores de red u otros errores aquí
+//     }
+// }); 
+
+
+
  
-  document.getElementById('agregarProductoForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Evitar el envío del formulario por defecto
 
-    const form = event.target;
-    const formData = new FormData(form);
-
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            headers: {
-                'Authorization': 'Bearer your_access_token', // Aquí debes incluir tu token de acceso si es necesario
-            },
-            body: formData
-        });
-
-        const responseData = await response.json();
-        if (response.ok) {
-            console.log('Producto registrado exitosamente:', responseData.product);
-            console.log('Token:', responseData.token);
-            // Manejar la respuesta exitosa aquí, por ejemplo, redirigir a otra página
-        } else {
-            console.error('Error:', responseData.message);
-            // Manejar el error aquí, por ejemplo, mostrar un mensaje al usuario
-        }
-    } catch (error) {
-        console.error('Ha ocurrido un error al realizar la solicitud:', error);
-        // Manejar errores de red u otros errores aquí
-    }
-});
 
   
   
@@ -205,5 +212,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  
   

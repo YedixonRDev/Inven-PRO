@@ -100,7 +100,7 @@ body{
 
 }
 .salir{ 
-    margin-top: 350px;
+    margin-top: 420px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -191,6 +191,7 @@ main {
     margin-left: 20px;
 }
 
+
 .bloque2 #buscarProductoInput {
     width: 400px;
     padding: 10px;
@@ -250,7 +251,6 @@ th, td {
     width: 10px;
 }
 
-/* Estilos específicos para las columnas */
 th:nth-child(1), td:nth-child(1) {
     width: 10px;
 }
@@ -288,7 +288,7 @@ th:nth-child(4), td:nth-child(4) {
 
   }
   .scroll {
-    height: 600px; /* Ajusta la altura según tus necesidades */
+    height: 600px;
     overflow-y: auto;
  }
 
@@ -338,7 +338,9 @@ th:nth-child(4), td:nth-child(4) {
     margin-bottom: 10px;
 }
 .producto {
+    width: 60%;
     display: flex;
+    
 }
 
 .precio {
@@ -375,11 +377,11 @@ th:nth-child(4), td:nth-child(4) {
     display: inline-block;
 }
 .bloque3 ul{
-    padding: 10px; /* Elimina el relleno */
-    list-style: none; /* Elimina los marcadores de lista (viñetas) */
+    padding: 10px; 
+    list-style: none; 
   }
   .buttonFinal{
     
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 10px;
   }
